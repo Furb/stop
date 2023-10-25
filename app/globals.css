@@ -1,107 +1,282 @@
+/*---------- CSS variables  ----------*/
+
 :root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --heading-font: "Archivo Black", sans-serif;
+  --body-font: "Roboto", sans-serif;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary: #203e5f;
+  --second: #eb3455;
+  --richBlack: #050b17;
+  --border: #eeeff1;
+  --white: #ffffff;
+  --black: #000000;
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  --space-small: max(4vh, 1.5rem) 0;
+  --space: max(8vh, 3rem) 0;
+  --space-bottom: max(4vh, 1.5rem);
 
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+  --shadow: rgba(0, 0, 0, 0.1) 0 0.25rem 1.5rem;
+  --border-red: 0.25rem solid var(--second);
+  --border-blue: 0.25rem solid var(--primary);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/*----------  Global (Based on Andy Bells reset)  ----------*/
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  font: inherit;
 }
 
-html,
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  all: unset;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
 body {
-  max-width: 100vw;
+  min-height: 100vh;
+  font-size: 16px;
+  font-family: var(--body-font);
+  color: var(--richBlack);
   overflow-x: hidden;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background: var(--white);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*=============================================
+=            Generalt            =
+=============================================*/
+
+/*----------  Farver  ----------*/
+
+.clr-primary {
+  color: var(--primary);
+}
+.clr-second {
+  color: var(--second);
+}
+.clr-richBlack {
+  color: var(--richBlack);
+}
+.clr-white {
+  color: var(--white);
+}
+.clr-black {
+  color: var(--black);
+}
+
+.bg-primary {
+  background: var(--primary);
+}
+.bg-second {
+  background: var(--second);
+}
+.bg-richBlack {
+  background: var(--richBlack);
+}
+.bg-white {
+  background: var(--white);
+}
+.bg-black {
+  background: var(--black);
+}
+
+/* Logo */
+
+.logo {
+  width: 100%;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  height: 2rem;
+}
+
+/*----------  spacing og layout  ----------*/
+
+.container {
+  width: min(85vw, 90rem);
+  margin-inline: auto;
+}
+
+.one__col {
+}
+
+.one__two-col {
+  display: grid;
+  grid-gap: 2rem;
+}
+
+.two__one-col {
+  display: grid;
+  grid-gap: 2rem;
+}
+
+.three__col {
+  display: grid;
+  grid-gap: 2rem;
+}
+
+.mb,
+section {
+  margin-bottom: 3rem;
+}
+
+/*----------  Typografi  ----------*/
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.25;
+  font-family: var(--heading-font);
+}
+
+h1,
+.h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  max-width: 44rem;
+  margin-bottom: 1.5rem;
+}
+
+h2,
+.h2 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  max-width: 44rem;
+  margin-bottom: 3.5rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  max-width: 44rem;
+  margin-bottom: 1rem;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.btn .btn__icon {
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  display: flex;
+}
+
+.btn {
+  background: var(--white);
+  border: 0.15rem solid var(--second);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--second);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--richBlack);
+  border: 0.15rem solid var(--richBlack);
+  color: var(--second);
+}
+
+/*=============================================
+=            Laptop            =
+=============================================*/
+
+@media (min-width: 61.25rem) {
+  /* General */
+
+  .container {
+    width: min(90vw, 90rem);
   }
+
+  .one__two-col {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .two__one-col {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .three__col {
+    display: grid;
+  }
+
+  .mb,
+  section {
+    margin-bottom: 4rem;
+  }
+}
+
+/*=============================================
+=            Desktop            =
+=============================================*/
+@media (min-width: 67.5rem) {
+  .container {
+    width: min(90vw, 90rem);
+  }
+}
+
+/*=============================================
+=            Laaaarge screen            =
+=============================================*/
+
+@media (min-width 80rem: ) {
 }

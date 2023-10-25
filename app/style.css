@@ -1,0 +1,415 @@
+/* Topnavigation */
+
+.topBar {
+  display: none;
+  background: var(--richBlack);
+  border-bottom: 1px solid var(--primary);
+  min-height: 2rem;
+  margin-bottom: 5rem;
+}
+
+.topBar .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.topNav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.topNav a,
+.topNav p {
+  color: var(--white);
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  margin-bottom: 0;
+  line-height: 1;
+  align-self: center;
+  display: flex;
+  align-items: center;
+}
+
+.topNav a:first-child::after {
+  content: "|";
+  color: var(--second);
+  padding-left: 2rem;
+  font-size: 1.5rem;
+}
+
+.topNav a:last-of-type::after {
+  content: "|";
+  color: var(--second);
+  padding-left: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.topNav a:hover,
+.searchIcon:hover {
+  color: var(--second);
+}
+
+.searchIcon {
+  height: 1.5rem;
+  color: var(--white);
+  width: auto;
+  cursor: pointer;
+}
+
+/* Header */
+
+.headerTop {
+  display: flex;
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+}
+
+/* Main nav */
+
+.headerNav {
+  background: var(--white);
+}
+
+ul.mainNav {
+  padding: 2rem 0;
+  display: grid;
+  grid-templete-colums: 1fr;
+  position: relative;
+  justify-items: center;
+}
+
+ul.mainNav li {
+  color: var(--primary);
+}
+
+.scanNav__link {
+  justify-content: center;
+  color: var(--second);
+}
+
+.scanNav__link:hover .material-icons {
+  transform: rotate(90deg);
+  transition: transform 300ms ease-in-out;
+}
+
+.dropdown {
+  height: 4rem;
+}
+
+@media (max-width: 61.25rem) {
+  ul.mainNav {
+    display: none;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    gap: 0.5rem;
+    transition: transform 300ms ease-in-out;
+    border-bottom: var(--border-red);
+    box-shadow: var(--shadow);
+  }
+
+  ul.mainNav > li {
+    padding-left: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+/* Hero */
+
+#hero {
+  background: var(--primary);
+  color: var(--white);
+  padding: var(--space);
+  margin-bottom: var(--space-bottom);
+}
+
+#scamHero {
+  background-color: var(--primary);
+  background-image: url("../public/banner_busted.jpg") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  padding: var(--space);
+  margin-bottom: var(--space-bottom);
+}
+
+/* Cards */
+
+.cards {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 3rem;
+}
+
+.card {
+  box-shadow: var(--shadow);
+  padding-top: max(3vh, 1.5rem);
+  border-bottom: var(--border-blue);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0.25rem 1.5rem;
+  border-bottom: var(--border-red);
+}
+
+.card__header,
+.card__body {
+  padding-left: 2rem;
+  padding-right: 4rem;
+}
+
+.card__body {
+  padding-bottom: max(3vh, 1.5rem);
+  flex-basis: 100%;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.card__btn {
+  background: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><!-- Generator: Adobe Illustrator 27.8.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 186.3 126.5" style="enable-background: new 0 0 186.3 126.5" xml:space="preserve" ><style type="text/css"> .st0 { fill: %23203e5f; } </style><polygon class="st0" points="186.3,0 186.3,126.5 0,126.5 38.9,0 " /></svg>')
+    no-repeat;
+  background-size: cover;
+  background-position: bottom right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 5rem;
+  margin-bottom: -1px;
+  border: none;
+}
+
+.card:hover .card__btn {
+  background: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><!-- Generator: Adobe Illustrator 27.8.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 186.3 126.5" style="enable-background: new 0 0 186.3 126.5" xml:space="preserve" ><style type="text/css"> .st0 { fill: %23eb3455  } </style><polygon class="st0" points="186.3,0 186.3,126.5 0,126.5 38.9,0 " /></svg>')
+    no-repeat;
+  background-size: cover;
+  background-position: bottom right;
+}
+
+.card__btn:hover {
+  cursor: pointer;
+}
+
+.card__btn-icon {
+  width: 1.5rem;
+  height: auto;
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+  color: var(--white);
+}
+
+/* GuidelineSection */
+
+#guidelineSection {
+  margin-bottom: var(--space-bottom);
+}
+
+.guideline {
+  border-left: 0.25rem solid var(--primary);
+  counter-reset: guidelineNumber 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0.25rem 1.5rem;
+}
+
+.guide {
+  padding: 2rem 2rem 2rem 3rem;
+  background: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  position: relative;
+  counter-increment: guidelineNumber 1;
+}
+
+.guide::before {
+  content: counter(guidelineNumber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--white);
+  border: 0.25rem solid var(--primary);
+  position: absolute;
+  top: 1.5rem;
+  left: -1.12rem;
+}
+
+.guide h3 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.guide span {
+  color: var(--second);
+  text-transform: uppercase;
+}
+
+/* CTA about */
+
+#info {
+  background: var(--primary);
+  padding: var(--space);
+  color: var(--white);
+  margin-bottom: 0;
+}
+
+#info .logo {
+  margin-bottom: 2rem;
+}
+
+#info .infoContent {
+  margin-bottom: 2rem;
+}
+
+#info .infoContent p {
+  margin-bottom: 2rem;
+}
+
+#info ul {
+  margin-bottom: 4rem;
+  list-style: disc;
+}
+
+#info li {
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+
+footer {
+  background: var(--richBlack);
+  color: var(--white);
+  padding: var(--space);
+}
+
+footer a {
+  color: var(--white);
+}
+.footerContent {
+  margin-bottom: 2rem;
+}
+
+.footerLogo {
+  width: min(18vw, 18.75rem);
+}
+
+.socialLinks {
+  max-width: 12.5rem;
+  display: flex;
+  gap: 2rem;
+  padding: var(--space-small);
+}
+
+.socialLinks a {
+  font-size: 2rem;
+}
+
+.footerBeskrivelse {
+  padding-left: 4rem;
+}
+
+.footerLinks {
+  display: flex;
+  padding: var(--space-small);
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.socialLinks a:hover,
+.footerLinks a:hover {
+  color: var(--second);
+}
+
+/*=============================================
+=            Laptop            =
+=============================================*/
+
+@media (min-width: 61.25rem) {
+  .topBar {
+    display: flex;
+    align-items: center;
+  }
+
+  .headerTop {
+    margin-bottom: 5rem;
+    padding: 0;
+  }
+
+  .headerLogo {
+    max-width: 18.75rem;
+  }
+
+  /*Main nav*/
+
+  ul.mainNav {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  ul.mainNav li {
+    color: var(--primary);
+  }
+
+  /* Cards */
+
+  .cards {
+    margin-bottom: 5rem;
+  }
+
+  .card__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Info sektion forside */
+
+  #info .container {
+    display: flex;
+  }
+
+  #info p {
+    font-size: 1.125rem;
+  }
+
+  #info ul {
+    padding-left: 4rem;
+  }
+
+  /* footer */
+
+  .footerContent {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .socialLinks {
+    padding: var(--space);
+  }
+
+  .footerLinks {
+    justify-content: flex-end;
+    gap: 4rem;
+  }
+}
+
+/*=============================================
+=            Desktop            =
+=============================================*/
+@media (min-width: 67.5rem) {
+  /* Cards */
+}
+
+/*=============================================
+=            Laaaarge screen            =
+=============================================*/
+
+@media (min-width 80rem: ) {
+}

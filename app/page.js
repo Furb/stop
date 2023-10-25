@@ -1,95 +1,143 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import fetchHomepage from "./libs/getHomepage";
+import Card from "./_components/Card";
+import Cta_about from "./_components/Cta_about";
+import { HiArrowNarrowRight } from "react-icons/hi";
+import Link from "next/link";
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+export default async function Home() {
+  const home = await fetchHomepage();
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+  const heroData = home?.acf?.moduler.find(
+    (modul) => modul.acf_fc_layout === "hero"
+  );
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+  if (heroData) {
+    const { overskrift_hero, sub_title_hero } = heroData;
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+    const nummerPunktData =
+      home?.acf?.moduler.find(
+        (modul) => modul.acf_fc_layout === "nummeret_guide"
+      )?.nummer_punkt || [];
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+    return (
+      <main>
+        <section id='scamHero'>
+          <div className='container'>
+            <h1>{overskrift_hero}</h1>
+            <p>{sub_title_hero}</p>
+          </div>
+        </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+        <section id='cards'>
+          <div className='container'>
+            <div className='cards card__grid'>
+              <Card />
+              <Card />
+              <Card />
+            </div>
+          </div>
+        </section>
+
+        <section id='nyheder'>
+          <div className='container'>
+            <h2>Nyheder & advarsler</h2>
+            <div className='cards card__grid'>
+              <div className='card'>
+                <div className='card__header'>
+                  <div className='card__icon'></div>
+                  <h3 className='card__title'>Advarsel/Nyhed</h3>
+                </div>
+                <div className='card__body'>
+                  <p className='card__excerpt'>
+                    Advarselstegn der hjælper dig med at afgøre, om du er stødt
+                    på en svindler.
+                  </p>
+                </div>
+                <div className='card__footer'>
+                  <button className='card__btn'>
+                    <div className='card__btn-icon'>
+                      <HiArrowNarrowRight />
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div className='card'>
+                <div className='card__header'>
+                  <div className='card__icon'></div>
+                  <h3 className='card__title'>
+                    StopSvindel.dk vil afskrække svindlere, og ruste danskerne
+                    med viden.
+                  </h3>
+                </div>
+                <div className='card__body'>
+                  <p className='card__excerpt'>
+                    2023 er året, hvor vi besluttede at gøre en særlig indsats
+                    for at medvirke til at forebygge og stoppe digital svindel i
+                    Danmark. Vi har opfundet en særlig Scamtjekker, og gør brug
+                    af vores samlede ressourcer i en fælles kamp for at øge
+                    opmærksomheden og styrke vores alles ansvar for at hjælpe
+                    med at forebygge og undgå svindel.
+                  </p>
+                </div>
+                <div className='card__footer'>
+                  <button className='card__btn'>
+                    <div className='card__btn-icon'>
+                      <HiArrowNarrowRight />
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div className='card'>
+                <div className='card__header'>
+                  <div className='card__icon'></div>
+                  <h3 className='card__title'>Advarsel/Nyhed</h3>
+                </div>
+                <div className='card__body'>
+                  <p className='card__excerpt'>
+                    2023 er året, hvor vi besluttede at gøre en særlig indsats
+                    for at medvirke til at forebygge og stoppe digital svindel i
+                    Danmark. Vi har opfundet en særlig Scamtjekker, og gør brug
+                    af vores samlede ressourcer i en fælles kamp for at øge
+                    opmærksomheden og styrke vores alles ansvar for at hjælpe
+                    med at forebygge og undgå svindel.
+                  </p>
+                </div>
+                <div className='card__footer'>
+                  <button className='card__btn'>
+                    <div className='card__btn-icon'>
+                      <HiArrowNarrowRight />
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <Link href='#' className='btn'>
+              <p>Se flere nyheder</p>
+              <div className='btn__icon'>
+                <HiArrowNarrowRight />
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        <section id='guidelineSection'>
+          <div className='container'>
+            <div className='guideline'>
+              {nummerPunktData.map((punkt, index) => (
+                <div key={index} className='guide'>
+                  <h3>
+                    <span>{punkt.titel_med_rødt}</span>
+                    {punkt.guide_titel_resten}
+                  </h3>
+                  <p>{punkt.guide_tekst}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <Cta_about />
+      </main>
+    );
+  }
 }
