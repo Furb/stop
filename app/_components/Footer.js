@@ -6,9 +6,9 @@ import { SiFacebook, SiSpotify, SiInstagram } from "react-icons/si";
 function Footer() {
   return (
     <footer>
-      <div class='container'>
-        <div class='footerContent one__two-col'>
-          <div class='socialSektion'>
+      <div className='container'>
+        <div className='footerContent one__two-col'>
+          <div className='socialSektion'>
             <div className='logo footerLogo'>
               <Image
                 src='/logo_hvid.svg'
@@ -18,7 +18,7 @@ function Footer() {
                 loading='lazy'
               />
             </div>
-            <div class='socialLinks'>
+            <div className='socialLinks'>
               <Link href='#'>
                 <SiFacebook />
               </Link>
@@ -31,7 +31,7 @@ function Footer() {
             </div>
           </div>
 
-          <div class='footerBeskrivelse'>
+          <div className='footerBeskrivelse'>
             <p>
               Sammen kan vi bygge en fremtid,hvor svindlere afskrækkes, svindel
               afsløres, ogdanskere er rustet med viden og værktøjer til
@@ -40,7 +40,7 @@ function Footer() {
           </div>
         </div>
         <hr />
-        <div class='footerLinks'>
+        <div className='footerLinks'>
           <a href='#'>Privacy</a>
           <a href='#'>Disclaimer</a>
           <a href='#'>Accesibility</a>
