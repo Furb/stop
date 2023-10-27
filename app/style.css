@@ -165,6 +165,13 @@ ul.mainNav li {
   padding-right: 4rem;
 }
 
+.card__icon {
+  position: relative;
+  padding: 4rem;
+  margin-bottom: max(5vh, 1.5rem);
+  margin-top: 1rem;
+}
+
 .card__body {
   padding-bottom: max(3vh, 1.5rem);
   flex-basis: 100%;
@@ -260,7 +267,6 @@ ul.mainNav li {
   background: var(--primary);
   padding: var(--space);
   color: var(--white);
-  margin-bottom: 0;
 }
 
 #info .logo {

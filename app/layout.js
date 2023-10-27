@@ -1,6 +1,7 @@
 import Header from "./_components/Header";
 import Topbar from "./_components/Topbar";
 import Footer from "./_components/Footer";
+
 import "./globals.css";
 
 import "./style.css";
