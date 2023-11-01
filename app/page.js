@@ -294,13 +294,6 @@ export default async function Home() {
                 </div>
               </div>
             </div>
-
-            <Link href='/nyheder-og-advarsler' className='btn'>
-              <p>Se flere nyheder</p>
-              <div className='btn__icon'>
-                <HiArrowNarrowRight />
-              </div>
-            </Link>
           </div>
         </section>
       </main>

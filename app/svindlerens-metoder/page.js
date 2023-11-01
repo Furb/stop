@@ -1,25 +1,39 @@
-import React from "react";
-import fetchPage from "../libs/getPage";
+import Link from "next/link";
 
 export default async function Metoder() {
-  const pageData = await fetchPage();
-
-  const heroData = pageData?.acf?.moduler.find(
-    (modul) => modul.acf_fc_layout === "hero"
-  );
-
-  if (heroData) {
-    const { overskrift_hero, sub_title_hero } = heroData;
-
-    return (
-      <main>
-        <section id='hero'>
-          <div className='container'>
-            <h1>{overskrift_hero}</h1>
-            <p>{sub_title_hero}</p>
-          </div>
-        </section>
-      </main>
-    );
+  const { data } = await fetch(process.env.NEXT_PUBLIC_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: `
+    query pagesData {
+  pages {
+    nodes {
+      id,
+      title,
+      slug
+    }
   }
+}
+  `,
+    }),
+  }).then((res) => res.json());
+
+  let pages = data?.pages?.nodes;
+
+  return (
+    <main>
+      <section id='hero'>
+        <div className='container'>
+          {pages?.map((page) => (
+            <Link key={page.id} href={`svindlerens-metoder/${page.slug}`}>
+              <h4>{page.title}</h4>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
 }
