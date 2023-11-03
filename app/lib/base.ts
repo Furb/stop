@@ -1,6 +1,9 @@
-const API_URL = process.env.NEXT_PUBLIC_URL;
+const API_URL = <string>process.env.NEXT_PUBLIC_URL;
 
-export async function fetchAPI() {
+export async function fetchAPI(
+  query = "",
+  { variables }: Record<string, any> = {}
+) {
   const headers = { "Content-Type": "application/json" };
 
   const res = await fetch(API_URL, {
@@ -8,6 +11,7 @@ export async function fetchAPI() {
     method: "POST",
     body: JSON.stringify({
       query,
+      variables,
     }),
   });
 

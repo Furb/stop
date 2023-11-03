@@ -1,11 +1,12 @@
-import React from "react";
+import { getPage } from "../../lib/quries";
 
-function page({ params }) {
+async function page(params) {
+  const page = await getPage(slug);
   return (
     <main>
       <section id='hero'>
         <div className='container'>
-          <h1>{params.slug}</h1>
+          <h1>{page.title}</h1>
         </div>
       </section>
     </main>

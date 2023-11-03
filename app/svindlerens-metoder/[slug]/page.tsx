@@ -1,6 +1,4 @@
-import Link from "next/link";
-
-export default async function Metoder() {
+async function page({ params }) {
   const { data } = await fetch(process.env.NEXT_PUBLIC_URL, {
     method: "POST",
     headers: {
@@ -8,7 +6,7 @@ export default async function Metoder() {
     },
     body: JSON.stringify({
       query: `
-    query pagesData {
+    query pageData {
   pages {
     nodes {
       id,
@@ -21,19 +19,17 @@ export default async function Metoder() {
     }),
   }).then((res) => res.json());
 
-  let pages = data?.pages?.nodes;
+  const slug = params.slug;
 
   return (
     <main>
       <section id='hero'>
         <div className='container'>
-          {pages?.map((page) => (
-            <Link key={page.id} href={`svindlerens-metoder/${page.slug}`}>
-              <h4>{page.title}</h4>
-            </Link>
-          ))}
+          <h1>{slug}</h1>
         </div>
       </section>
     </main>
   );
 }
+
+export default page;

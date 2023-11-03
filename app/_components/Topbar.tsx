@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HiSearch } from "react-icons/hi";
-import fetchLinks from "../libs/getNavigation";
+import fetchLinks from "../lib/getNavigation";
 
 async function Topbar() {
   const links = await fetchLinks();

@@ -9,6 +9,7 @@
   --richBlack: #050b17;
   --border: #eeeff1;
   --white: #ffffff;
+  --offWhite: #fafafa;
   --black: #000000;
 
   --space-small: max(4vh, 1.5rem) 0;
@@ -202,6 +203,10 @@ h3,
   letter-spacing: 1px;
   max-width: 44rem;
   margin-bottom: 1rem;
+}
+
+p {
+  max-width: 44rem;
 }
 
 a {

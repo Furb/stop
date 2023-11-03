@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import fetchLinks from "../libs/getNavigation";
+import fetchLinks from "../lib/getNavigation";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { HiOutlineChevronRight } from "react-icons/hi";
 

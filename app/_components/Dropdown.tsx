@@ -1,7 +1,7 @@
 "use client";
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import fetchLinks from "../libs/getNavigation";
+import fetchLinks from "../lib/getNavigation";
 import Link from "next/link";
 
 async function Dropdown() {

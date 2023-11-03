@@ -160,13 +160,12 @@ ul.mainNav .arrowIndicator {
     padding: 0.5rem 0;
   }
 }
-
 /* Hero */
 
 #hero {
   background: var(--primary);
   color: var(--white);
-  margin-bottom: var(--space-bottom);
+  margin-bottom: 0;
   padding: var(--space);
 }
 
@@ -181,13 +180,20 @@ ul.mainNav .arrowIndicator {
   padding: var(--space);
 }
 
+.heroHomeLink {
+  display: block;
+  margin-bottom: 4rem;
+  color: var(--white);
+  text-decoration: underline;
+}
+
 /* Cards */
 
 .cards {
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: 1fr;
-  margin-bottom: 3rem;
+  padding: var(--space);
 }
 
 .card {
@@ -334,6 +340,45 @@ ul.mainNav .arrowIndicator {
   margin-bottom: 1rem;
 }
 
+/* brugbar */
+
+.brugbar .container {
+  background: var(--offWhite);
+  padding: var(--space-small);
+  padding-left: 3rem;
+  margin-bottom: 1rem;
+}
+
+.brugbar h4 {
+  margin-bottom: var(--space-bottom);
+}
+
+.sidebyside {
+  display: flex;
+}
+
+.sidebyside > div {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  width: 11.25rem;
+  border: 0.15rem solid var(--richBlack);
+  padding: 0 1rem;
+}
+.sidebyside > div:hover {
+  background: var(--second);
+  cursor: pointer;
+  color: var(--white);
+}
+
+.sidebyside > div:last-child {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  width: 11.25rem;
+  border-left: none;
+}
+
 /* Footer */
 
 footer {
@@ -380,6 +425,39 @@ footer a {
   color: var(--second);
 }
 
+/* Boxes */
+
+#boxes {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  display: inline-block;
+  padding: 2rem 3rem 1rem;
+  margin: -2rem auto 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0.25rem 1.5rem;
+  z-index: 1000;
+  font-size: 1.125rem;
+}
+
+.boxWhite {
+  color: inherit;
+  background: var(--white);
+  border-top: 0.25rem solid var(--second);
+}
+
+.boxRed {
+  color: var(--white);
+  background: var(--second);
+  border-top: 0.25rem solid var(--second);
+}
+
+.boxBlue {
+  background: var(--primary);
+  border-top: 0.25rem solid var(--second);
+}
+
 /*=============================================
 =            Laptop            =
 =============================================*/
@@ -422,11 +500,13 @@ footer a {
     color: var(--white);
   }
 
-  /* Cards */
+  /* Hero */
 
-  .cards {
-    margin-bottom: 5rem;
+  #scamHero {
+    background-position: top right;
+    padding: 20vh 0 max(8vh, 3rem);
   }
+  /* Cards */
 
   .card__grid {
     grid-template-columns: repeat(3, 1fr);
@@ -460,6 +540,17 @@ footer a {
   .footerLinks {
     gap: 4rem;
     justify-content: flex-end;
+  }
+
+  /* Box */
+
+  .box {
+    width: 70%;
+    padding: 5rem;
+  }
+
+  .box p {
+    max-width: 100%;
   }
 }
 

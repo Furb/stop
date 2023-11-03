@@ -1,4 +1,4 @@
-import fetchHomepage from "./libs/getHomepage";
+import fetchHomepage from "./lib/getHomepage";
 import Image from "next/image";
 import Cta_about from "./_components/Cta_about";
 import { HiArrowNarrowRight } from "react-icons/hi";
