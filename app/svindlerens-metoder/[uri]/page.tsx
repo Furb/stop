@@ -11,7 +11,7 @@ async function page({ params }) {
     nodes {
       id,
       title,
-      slug
+      uri
     }
   }
 }
@@ -19,13 +19,13 @@ async function page({ params }) {
     }),
   }).then((res) => res.json());
 
-  const slug = params.slug;
+  const uri = params.uri;
 
   return (
     <main>
       <section id='hero'>
         <div className='container'>
-          <h1>{slug}</h1>
+          <h1>{uri}</h1>
         </div>
       </section>
     </main>

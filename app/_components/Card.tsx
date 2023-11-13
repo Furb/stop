@@ -1,3 +1,5 @@
+"use client";
+
 import { HiArrowNarrowRight } from "react-icons/hi";
 
 function Card() {
